@@ -9,6 +9,9 @@ from contextlib import closing
 
 
 class ProgressBar(object):
+    '''
+    ProgressBar类，简单的下载进度显示: [abcd.exe] downloding 84574.00 KB / 171498.00 KB
+    '''
     def __init__(self, title, count=0.0, run_status=None, fin_status=None, total=100.0, unit='', sep='/',
                  chunk_size=1.0):
         super(ProgressBar, self).__init__()
@@ -41,6 +44,9 @@ class ProgressBar(object):
 
 
 class DownLoader(object):
+    '''
+    Downloader类，实现下载文件的主要功能，支持断点续传
+    '''
     def __init__(self, url, out=None):
         super(DownLoader, self).__init__()
         self.url = url
@@ -113,7 +119,6 @@ class DownLoader(object):
             sys.stdout.write("\n" + "^C download paused by user")
         except requests.exceptions.ReadTimeout, e:
             print e.message
-            pass
 
 if __name__ == '__main__':
         t = DownLoader("http://localhost:81/1.png",out="C:\\Users\\test")

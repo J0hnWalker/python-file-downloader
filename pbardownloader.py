@@ -37,7 +37,6 @@ class ProgressBar(object):
         if self.count >= self.total:
             end_str = '\n'
             self.status = status or self.fin_status
-        #print self.__get_info() + '\b' #+ end_str
         sys.stdout.write(self.__get_info() + '\r')
 
 
@@ -100,12 +99,10 @@ class DownLoader(object):
                 content_size = Length
                 print content_size
                 progress = ProgressBar(filename, count=current_size, total=content_size, unit="KB", chunk_size=chunk_size, run_status="downloding", fin_status="downloaded")
-                # chunk_size = chunk_size &lt; content_size and chunk_size or content_size
                 with open(directory + filename, "ab+") as file:
                     file.seek(current_size)
                     file.truncate()
                     for data in response.iter_content(chunk_size=chunk_size):
-                        #print len(data)
                         file.write(data)
                         file.flush()
                         progress.refresh(count=len(data))
@@ -119,8 +116,6 @@ class DownLoader(object):
             pass
 
 if __name__ == '__main__':
-        t = DownLoader("http://localhost:81/1.png",out="C:\\Users\\Administrator\\PycharmProjects\\test")
+        t = DownLoader("http://localhost:81/1.png",out="C:\\Users\\test")
         t.download()
-        
-
 

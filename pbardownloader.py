@@ -57,9 +57,6 @@ class DownLoader(object):
     def detect_directory(self):
         if not self.output:
             self.output = ""
-        else:
-            pass
-            #netloc = os.path.basename(urlparse.urlparse(self.url).netloc)  #103.5.126.164
         return self.output
 
     def is_continuable(self):

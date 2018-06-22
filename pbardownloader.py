@@ -4,7 +4,6 @@ import os
 import time
 import urlparse
 import requests
-import helper
 from contextlib import closing
 
 
